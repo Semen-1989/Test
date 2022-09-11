@@ -1,9 +1,8 @@
-
 def correctness_check(user_input: str) -> bool:
-    if user_input == 'exit' or 'EXIT':
-        exit('Счастливо!')
+    if 'exit' in user_input.lower():
+        exit('Goodbye!')
     for k in user_input:
-        if k in '+-\* ':
+        if k in '+-/* ':
             user_input = user_input.replace(k, '')
     if user_input.isdigit():
         return True
@@ -16,12 +15,21 @@ def output(check: bool, input_: str):
         try:
             return eval(input_)
         except:
-            return "SyntaxError! Введите корректное значение, ведущие нули в десятичных целочисленных литералах не допускаются"
+            return "SyntaxError! Please enter a valid value, leading zeros are not allowed in decimal integer literals," \
+                   "\nthe number of signs of the operations '*' and '/' must not exceed two and yes, you cannot divide by zero!"
     else:
-        return "Valueerror! Введите корректное значение!"
+        return "ValueError! Please enter a valid value!"
+
+
+def calculator_test(a: str):
+    return output(correctness_check(a), a)
+
+
+def calculator():
+    while True:
+        print(output(correctness_check((a := input('Enter the expression to be evaluated, for example "2+2"\n'
+                                                   'to exit, type "exit"\n'))), a))
 
 
 if __name__ == '__main__':
-    while True:
-        print(output(correctness_check((a := input('Введите выражение, которое нужно вычислить, например "2+2"\n'
-                                                   'для выхода наберите "exit"\n'))), a))
+    calculator()
