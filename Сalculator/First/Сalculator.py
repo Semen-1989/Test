@@ -27,8 +27,12 @@ def calculator_test(a: str):
 
 def calculator():
     while True:
-        print(*output(correctness_check((a := input('Enter the expression to be evaluated, for example "2+2"\n'
-                                                    'to exit, type "exit"\n'))), a))
+        b = output(correctness_check((a := input('Enter the expression to be evaluated, for example "2+2"\n'
+                                                 'to exit, type "exit"\n'))), a)
+        if len(b) != 2:
+            print(b)
+        else:
+            print(*b)
 
 
 if __name__ == '__main__':
