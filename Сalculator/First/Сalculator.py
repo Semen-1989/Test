@@ -13,7 +13,7 @@ def correctness_check(user_input: str) -> bool:
 def output(check: bool, input_: str):
     if check:
         try:
-            return eval(input_)
+            return ['will be:', eval(input_)]
         except:
             return "SyntaxError! Please enter a valid value, leading zeros are not allowed in decimal integer literals," \
                    "\nthe number of signs of the operations '*' and '/' must not exceed two and yes, you cannot divide by zero!"
@@ -27,8 +27,8 @@ def calculator_test(a: str):
 
 def calculator():
     while True:
-        print(output(correctness_check((a := input('Enter the expression to be evaluated, for example "2+2"\n'
-                                                   'to exit, type "exit"\n'))), a))
+        print(*output(correctness_check((a := input('Enter the expression to be evaluated, for example "2+2"\n'
+                                                    'to exit, type "exit"\n'))), a))
 
 
 if __name__ == '__main__':
