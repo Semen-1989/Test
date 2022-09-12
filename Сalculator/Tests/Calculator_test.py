@@ -1,6 +1,5 @@
 import unittest
-from Сalculator.Сalculator import calculator_test
-
+from Сalculator.First.Сalculator import calculator_test
 
 class MyTestCase(unittest.TestCase):
     def test_plus(self):
@@ -18,7 +17,7 @@ class MyTestCase(unittest.TestCase):
     def test_SyntaxError(self):
         self.assertEqual(calculator_test('09 * 7' or "9***4"),
                          "SyntaxError! Please enter a valid value, leading zeros are not allowed in decimal integer literals," \
-                   "\nthe number of signs of the operations '*' and '/' must not exceed two and yes, you cannot divide by zero!")
+                         "\nthe number of signs of the operations '*' and '/' must not exceed two and yes, you cannot divide by zero!")
 
     def test_ValueError(self):
         self.assertEqual(calculator_test('asdfg'), "ValueError! Please enter a valid value!")
